@@ -3,7 +3,7 @@
 # NOTE: Only one board may be enabled!
 # If none is enabled pin mappings from generic_map.h will be used.
 
-OPTION(BOARD_BLACKBOX_X32 "Compile for BlackBox X32" OFF)
+OPTION(BOARD_BLACKBOX_X32 "Compile for BlackBox X32" ON)
 OPTION(BOARD_BDRING_V3P5 "Compile for v3.5 3-axis board" OFF)
 OPTION(BOARD_BDRING_V4 "Compile for bdring v4 3-axis board" OFF)
 OPTION(BOARD_BDRING_I2S6A "Compile for bdring 6-axis I2S board - untested!" OFF)
@@ -19,33 +19,33 @@ OPTION(BOARD_MY_MACHINE "Compile for my_machine_map.h" OFF)
 
 OPTION(X_AXIS_GANGED "Compile with ganged X axis" OFF)
 OPTION(X_AXIS_SQUARED "Compile with auto-squared X axis" OFF)
-OPTION(Y_AXIS_GANGED "Compile with ganged Y axis" OFF)
+OPTION(Y_AXIS_GANGED "Compile with ganged Y axis" ON)
 OPTION(Y_AXIS_SQUARED "Compile with auto-squared Y axis" OFF)
 OPTION(Z_AXIS_GANGED "Compile with ganged Z axis" OFF)
 OPTION(Z_AXIS_SQUARED "Compile with auto-squared Z axis" OFF)
 
 # Driver options
 OPTION(NOPROBE "Compile without probe support" OFF)
-OPTION(SafetyDoor "Safety door enable" OFF)
+OPTION(SafetyDoor "Safety door enable" ON)
 OPTION(MPGMode "MPG mode" OFF)
 OPTION(I2SStepping "Use I2S Stepping" OFF)
 
 # The following plugin options are supported:
 
 # Networking and WebUI plugin options
-OPTION(WiFi "Wifi + protocols" OFF)
+OPTION(WiFi "Wifi + protocols" ON)
 # OPTION(Ethernet "Ethernet + protocols" OFF) # to be completed
 OPTION(Bluetooth "Bluetooth" OFF)
-OPTION(SoftAP "Enable soft AP mode" OFF) # WiFi only
+OPTION(SoftAP "Enable soft AP mode" ON) # WiFi only
 OPTION(FtpDaemon "Enable ftp daemon" OFF) # Requires SDcard On
 OPTION(WebDAV "Enable WebDAV protocol" OFF) # Requires SDcard On
-OPTION(mDNS "Enable mDNS protocol" OFF)
+OPTION(mDNS "Enable mDNS protocol" ON)
 OPTION(SSDP "Enable SSDP protocol" OFF)
-OPTION(WebUI "WebUI services" OFF)
+OPTION(WebUI "WebUI services" ON)
 OPTION(WebAuth "WebUI authentication" OFF)
 
 # SD Card plugin options
-OPTION(SDcard "SD Card Streaming" OFF)
+OPTION(SDcard "SD Card Streaming" ON)
 
 # Motor plugin options
 # NOTE: SPI mode Trinamic drivers cannot currently be used with SD Card enabled!
