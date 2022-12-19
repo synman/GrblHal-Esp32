@@ -38,6 +38,7 @@
 
 // Stepper Driver Pins
 #define STEPPERS_ENABLE_PIN	  GPIO_NUM_17
+#define INVERT_ST_ENABLE_MASK 1
 
 #define X_STEP_PIN            GPIO_NUM_12
 #define X_DIRECTION_PIN       GPIO_NUM_14

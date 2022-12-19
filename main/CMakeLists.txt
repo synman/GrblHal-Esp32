@@ -40,7 +40,7 @@ OPTION(SoftAP "Enable soft AP mode" ON) # WiFi only
 OPTION(FtpDaemon "Enable ftp daemon" OFF) # Requires SDcard On
 OPTION(WebDAV "Enable WebDAV protocol" OFF) # Requires SDcard On
 OPTION(mDNS "Enable mDNS protocol" ON)
-OPTION(SSDP "Enable SSDP protocol" OFF)
+OPTION(SSDP "Enable SSDP protocol" ON)
 OPTION(WebUI "WebUI services" ON)
 OPTION(WebAuth "WebUI authentication" OFF)
 
@@ -69,6 +69,9 @@ OPTION(LASERCOOLANT "Compile with Laser coolant plugin support" OFF)
 
 # Keypad plugin options
 OPTION(Keypad "I2C Keypad" OFF)
+
+# Hibernate option
+OPTION(Hibernate "ESP801 - Put the ESP32 board into hiberation mode" ON)
 
 # --- Do not change anything below unless you understand what you are doing ---
 
@@ -432,6 +435,10 @@ if(LASERCOOLANT)
 target_compile_definitions("${COMPONENT_LIB}" PUBLIC LASER_COOLANT_ENABLE=1)
 endif()
 
+if(Hibernate)
+target_compile_definitions("${COMPONENT_LIB}" PUBLIC ENABLE_HIBERNATE)
+endif()
+
 target_add_binary_data("${COMPONENT_LIB}" "embedded/favicon.ico" BINARY)
 target_add_binary_data("${COMPONENT_LIB}" "embedded/ap_login.html" BINARY)
 if(WebUI OR WEBUI_ENABLE GREATER_EQUAL 1)
@@ -485,6 +492,7 @@ unset(FRAM CACHE)
 unset(NOPROBE CACHE)
 unset(LBCLUSTER CACHE)
 unset(LASERCOOLANT CACHE)
+unset(Hibernate CACHE)
 
 #target_compile_options("${COMPONENT_LIB}" PRIVATE -Werror -Wall -Wextra -Wmissing-field-initializers)
 target_compile_options("${COMPONENT_LIB}" PRIVATE -Wimplicit-fallthrough=1 -Wno-missing-field-initializers -Wno-maybe-uninitialized -Wno-stringop-truncation)
